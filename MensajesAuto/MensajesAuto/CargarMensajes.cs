@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices.ComTypes;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -16,8 +18,18 @@ namespace MensajesAuto
         {
             InitializeComponent();
             
-        }
+            string rutaArchivo = "C:\\Users\\Juan Diego\\Desktop\\Proyectos_visual\\MensajesAutomaticos\\Mensajes-Automaticos\\MensajesAuto\\MensajesAuto\\Data\\prueba.txt";
+            if (!File.Exists(rutaArchivo))
+            {
+            
+                File.CreateText(rutaArchivo);
+                
+            }
+            
 
+            
+        }
+        
         private void btnCargar_Click(object sender, EventArgs e)
         {
             if (txtMesajeAgregar.Text == "")
@@ -41,6 +53,11 @@ namespace MensajesAuto
                 txtMesajeAgregar.Focus();
             }
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+         StreamWriter sw = File.CreateText(rut);    
         }
     }
 }

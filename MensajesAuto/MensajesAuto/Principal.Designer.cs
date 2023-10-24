@@ -38,6 +38,7 @@
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.lvMensajes = new System.Windows.Forms.ListView();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -129,7 +130,7 @@
             this.btnAgregar.Cursor = System.Windows.Forms.Cursors.Default;
             this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnAgregar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgregar.Location = new System.Drawing.Point(166, 224);
+            this.btnAgregar.Location = new System.Drawing.Point(167, 229);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(171, 44);
             this.btnAgregar.TabIndex = 8;
@@ -147,12 +148,27 @@
             this.lvMensajes.TabIndex = 9;
             this.lvMensajes.UseCompatibleStateImageBehavior = false;
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Lime;
+            this.button1.Cursor = System.Windows.Forms.Cursors.Default;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(136, 436);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(235, 106);
+            this.button1.TabIndex = 10;
+            this.button1.Text = "Iniciar";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GrayText;
-            this.ClientSize = new System.Drawing.Size(506, 450);
+            this.ClientSize = new System.Drawing.Size(506, 554);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.lvMensajes);
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.checkBox2);
@@ -185,6 +201,7 @@
         private System.Windows.Forms.CheckBox checkBox2;
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.ListView lvMensajes;
+        private System.Windows.Forms.Button button1;
     }
 }
 

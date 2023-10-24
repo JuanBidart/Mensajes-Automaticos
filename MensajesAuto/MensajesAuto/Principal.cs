@@ -31,5 +31,10 @@ namespace MensajesAuto
             Form2 Cargarmensaje = new Form2();
             Cargarmensaje.ShowDialog();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
