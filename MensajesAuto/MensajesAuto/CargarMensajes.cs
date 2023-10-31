@@ -5,10 +5,12 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Runtime.InteropServices.ComTypes;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace MensajesAuto
 {
@@ -17,24 +19,35 @@ namespace MensajesAuto
         public Form2()
         {
             InitializeComponent();
-            
-            string rutaArchivo = "C:\\Users\\Juan Diego\\Desktop\\Proyectos_visual\\MensajesAutomaticos\\Mensajes-Automaticos\\MensajesAuto\\MensajesAuto\\Data\\prueba.txt";
-            if (!File.Exists(rutaArchivo))
-            {
-            
-                File.CreateText(rutaArchivo);
-                
-            }
-            
 
-            
+            try
+            {
+
+                using (StreamReader sr = File.OpenText("Mensajes.txt"))
+                {
+                    string line;
+                    while ((line = sr.ReadLine()) != null)
+                    {
+                        lvMensajesCargados.Items.Add(line);
+                    }
+                }
+            }
+            catch (Exception)
+            {
+
+
+            }
+           
+
+
         }
-        
+
         private void btnCargar_Click(object sender, EventArgs e)
         {
             if (txtMesajeAgregar.Text == "")
             {
                 MessageBox.Show("Por favor ingrese el texto");
+                txtMesajeAgregar.Focus();
             }
             else
             {
@@ -46,18 +59,46 @@ namespace MensajesAuto
                 mensaje1.mensaje = mensaje;
 
 
-                lvMensajesCargados.Items.Insert(canMen, mensaje1.idmensaje +"_"+ mensaje1.mensaje );
+                lvMensajesCargados.Items.Insert(canMen, mensaje1.idmensaje + "_  " + mensaje1.mensaje);
 
-               // MessageBox.Show("Mensaje Cargado");
+                MessageBox.Show("Mensaje Cargado");
                 txtMesajeAgregar.Text = "";
                 txtMesajeAgregar.Focus();
             }
 
         }
+        private List<string> crearlista() {
+            List<string> items = new List<string>();
+            foreach (ListViewItem item in lvMensajesCargados.Items)
+            {
+                items.Add(item.Text);
+            }
 
-        private void button1_Click(object sender, EventArgs e)
+            return items;
+
+        }
+
+        private void Guardar_a_archivo(object sender, EventArgs e)
         {
-         StreamWriter sw = File.CreateText(rut);    
+            StreamWriter sw = new StreamWriter("Mensajes.txt");
+
+            foreach (string item in crearlista())
+            {
+                sw.WriteLine(item);
+            }
+            MessageBox.Show("Mensaje guardado");
+            sw.Close();
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            List<string> itemschek = new List<string>();
+            foreach (ListViewItem itemSelec in lvMensajesCargados.CheckedItems)
+            {
+                itemSelec.Remove();
+            }
+            
+               
         }
     }
 }
