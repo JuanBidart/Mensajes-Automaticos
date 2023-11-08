@@ -235,7 +235,6 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TextBox txtTiempodeEspera;
         private System.Windows.Forms.Label lblTiempodeEspera;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtIntervalo;
@@ -247,6 +246,7 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtCantMens;
+        public System.Windows.Forms.TextBox txtTiempodeEspera;
     }
 }
 

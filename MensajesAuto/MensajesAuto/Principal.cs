@@ -9,18 +9,20 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace MensajesAuto
 {
-    
+
     public partial class Principal : Form
     {
         
         public Principal()
         {
             InitializeComponent();
+           
         }
-
+        
         private void Form1_Load(object sender, EventArgs e)
         {
             DateTime fecha = DateTime.Now;
@@ -43,9 +45,8 @@ namespace MensajesAuto
         }
 
         private void button1_Click(object sender, EventArgs e)
+        { 
 
-            
-        {
             if (txtCantMens.Text==""||txtIntervalo.Text==""||txtTiempodeEspera.Text=="")
             {
                 MessageBox.Show("Verifique y cargue los numeros correctos");
@@ -57,8 +58,12 @@ namespace MensajesAuto
                     int intervaloMen = int.Parse(txtIntervalo.Text);
                     int cantidadMensaje = int.Parse(txtCantMens.Text);
                     int espera = int.Parse(txtTiempodeEspera.Text);
-
+                    
+                    
+                    ventanaContador(true);
                     Thread.Sleep(espera * 1000);
+                    
+                    
                     List<string> lista = new List<string>();
                     foreach (ListViewItem item in lvMensajes.Items)
                     {
@@ -82,7 +87,15 @@ namespace MensajesAuto
                     MessageBox.Show("error" + ex);
                 }
             }
-            
+        }
+        
+   
+        private void ventanaContador(bool estado) { 
+        ContadoresTiempo ventanacontador = new ContadoresTiempo();
+            if (estado == true )
+            {
+                ventanacontador.ShowDialog();
+            }else ventanacontador.Close();
 
 
         }
@@ -97,7 +110,7 @@ namespace MensajesAuto
                 {
                     lvMensajes.Items.Add(line);
                 }
-
+                sr.Close();
 
             }
         }
