@@ -59,32 +59,56 @@ namespace MensajesAuto
                     int cantidadMensaje = int.Parse(txtCantMens.Text);
                     int espera = int.Parse(txtTiempodeEspera.Text);
                     
-                    
-                    ventanaContador(true);
-                    Thread.Sleep(espera * 1000);
-                    
+                    //
+                   // ventanaContador(true);
+                   Thread.Sleep(espera * 1000);
                     
                     List<string> lista = new List<string>();
                     foreach (ListViewItem item in lvMensajes.Items)
                     {
-                        lista.Add(item.Text);
+                        if (cbxIncluirFecha.Checked == true)
+                        {
+                            int posicion = 0;
+                            posicion = item.Text.Length;
+                            lista.Add(item.Text.Insert(posicion,"  " + label1.Text));   
+                        }
+                        else lista.Add(item.Text);
+
 
                     }
-                    for (int i = 0; i < cantidadMensaje; i++)
+                    if (cbxAleatorio.Checked == true)
                     {
-
-                        foreach (string lineas in lista)
+                        Random numerorandom = new Random();
+                        lista.Sort((x, y) => numerorandom.Next(-1, 2));
+                        for (int i = 0; i < cantidadMensaje; i++)
                         {
-                            SendKeys.SendWait(lineas.Substring(3));
-                            SendKeys.SendWait("{ENTER}");
-                            Thread.Sleep(intervaloMen * 1000);
+
+                            foreach (string lineas in lista)
+                            {
+                                SendKeys.SendWait(lineas.Substring(3));
+                                SendKeys.SendWait("{ENTER}");
+                                Thread.Sleep(intervaloMen * 1000);
+                            }
                         }
                     }
+                    else {
+                        for (int i = 0; i < cantidadMensaje; i++)
+                        {
+
+                            foreach (string lineas in lista)
+                            {
+                                SendKeys.SendWait(lineas.Substring(3));
+                                SendKeys.SendWait("{ENTER}");
+                                Thread.Sleep(intervaloMen * 1000);
+                            }
+                        }
+                    }
+                    
                     MessageBox.Show("Tarea Terminada", "Fin", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("error" + ex);
+                    MessageBox.Show("error" + ex.Message);
                 }
             }
         }

@@ -34,8 +34,8 @@
             this.lblTiempodeEspera = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtIntervalo = new System.Windows.Forms.TextBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.cbxAleatorio = new System.Windows.Forms.CheckBox();
+            this.cbxIncluirFecha = new System.Windows.Forms.CheckBox();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.lvMensajes = new System.Windows.Forms.ListView();
             this.button1 = new System.Windows.Forms.Button();
@@ -103,30 +103,30 @@
             this.txtIntervalo.Size = new System.Drawing.Size(131, 29);
             this.txtIntervalo.TabIndex = 1;
             // 
-            // checkBox1
+            // cbxAleatorio
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox1.ForeColor = System.Drawing.Color.Lime;
-            this.checkBox1.Location = new System.Drawing.Point(146, 179);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(116, 29);
-            this.checkBox1.TabIndex = 3;
-            this.checkBox1.Text = "Aleatorio";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.cbxAleatorio.AutoSize = true;
+            this.cbxAleatorio.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxAleatorio.ForeColor = System.Drawing.Color.Lime;
+            this.cbxAleatorio.Location = new System.Drawing.Point(146, 179);
+            this.cbxAleatorio.Name = "cbxAleatorio";
+            this.cbxAleatorio.Size = new System.Drawing.Size(116, 29);
+            this.cbxAleatorio.TabIndex = 3;
+            this.cbxAleatorio.Text = "Aleatorio";
+            this.cbxAleatorio.UseVisualStyleBackColor = true;
             // 
-            // checkBox2
+            // cbxIncluirFecha
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox2.ForeColor = System.Drawing.Color.Lime;
-            this.checkBox2.Location = new System.Drawing.Point(281, 179);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(154, 29);
-            this.checkBox2.TabIndex = 4;
-            this.checkBox2.Text = "Incluir Fecha";
-            this.checkBox2.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.cbxIncluirFecha.AutoSize = true;
+            this.cbxIncluirFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxIncluirFecha.ForeColor = System.Drawing.Color.Lime;
+            this.cbxIncluirFecha.Location = new System.Drawing.Point(281, 179);
+            this.cbxIncluirFecha.Name = "cbxIncluirFecha";
+            this.cbxIncluirFecha.Size = new System.Drawing.Size(154, 29);
+            this.cbxIncluirFecha.TabIndex = 4;
+            this.cbxIncluirFecha.Text = "Incluir Fecha";
+            this.cbxIncluirFecha.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.cbxIncluirFecha.UseVisualStyleBackColor = true;
             // 
             // btnAgregar
             // 
@@ -213,8 +213,8 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.lvMensajes);
             this.Controls.Add(this.btnAgregar);
-            this.Controls.Add(this.checkBox2);
-            this.Controls.Add(this.checkBox1);
+            this.Controls.Add(this.cbxIncluirFecha);
+            this.Controls.Add(this.cbxAleatorio);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtIntervalo);
             this.Controls.Add(this.lblTiempodeEspera);
@@ -238,8 +238,8 @@
         private System.Windows.Forms.Label lblTiempodeEspera;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtIntervalo;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.CheckBox cbxAleatorio;
+        private System.Windows.Forms.CheckBox cbxIncluirFecha;
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.ListView lvMensajes;
         private System.Windows.Forms.Button button1;
