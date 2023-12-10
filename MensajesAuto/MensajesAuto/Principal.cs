@@ -97,9 +97,20 @@ namespace MensajesAuto
 
                             foreach (string lineas in lista)
                             {
-                                SendKeys.SendWait(lineas.Substring(3));
-                                SendKeys.SendWait("{ENTER}");
-                                Thread.Sleep(intervaloMen * 1000);
+                                if (lineas.Length < 10)
+                                {
+                                    SendKeys.SendWait(lineas.Substring(3));
+                                    SendKeys.SendWait("{ENTER}");
+                                    Thread.Sleep(intervaloMen * 1000);
+                                }
+                                else
+                                {
+
+                                    SendKeys.SendWait(lineas.Substring(4));
+                                    SendKeys.SendWait("{ENTER}");
+                                    Thread.Sleep(intervaloMen * 1000);
+                                }
+                               
                             }
                         }
                     }

@@ -51,20 +51,33 @@ namespace MensajesAuto
             }
             else
             {
+                try
+                {
+                    int canMen = lvMensajesCargados.Items.Count;
+                    string mensaje = txtMesajeAgregar.Text;
+                    Mensaje mensaje1 = new Mensaje();
+                    mensaje1.idmensaje = canMen;
+                    mensaje1.mensaje = mensaje;
 
-                int canMen = lvMensajesCargados.Items.Count;
-                string mensaje = txtMesajeAgregar.Text;
-                Mensaje mensaje1 = new Mensaje();
-                mensaje1.idmensaje = canMen;
-                mensaje1.mensaje = mensaje;
+                    if (mensaje1.mensaje.Length > 50)
+                    {
+                        MessageBox.Show("El mensaje no puede superar los 50 caracteres");
+                        txtMesajeAgregar.Focus();
+                    }
+                    lvMensajesCargados.Items.Insert(canMen, mensaje1.idmensaje + "_  " + mensaje1.mensaje);
 
+                    MessageBox.Show("Mensaje Cargado");
+                    txtMesajeAgregar.Text = "";
+                    txtMesajeAgregar.Focus();
 
-                lvMensajesCargados.Items.Insert(canMen, mensaje1.idmensaje + "_  " + mensaje1.mensaje);
+                }
+                catch (Exception)
+                {
 
-                MessageBox.Show("Mensaje Cargado");
-                txtMesajeAgregar.Text = "";
-                txtMesajeAgregar.Focus();
-            }
+                    throw;
+                }
+
+            } 
 
         }
         private List<string> crearlista() {
